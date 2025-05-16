@@ -13,13 +13,23 @@
       <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
       <!-- Babel - permet de compiler le code JavaScript -->
       <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
       <script>
+        // Définition d'un composant React basique nommé App
+        // Cette fonction retourne un élément header vide
         function App() {
           return React.createElement("header");
         }
-        // const root = ReactDOM.createRoot(document.getElementById('root'));
-        // root.render(<App />);
+        
+        // Création d'une racine React dans l'élément avec l'id 'root'
+        // C'est la méthode recommandée pour React 18+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        
+        // Rendu du composant App dans la racine React
+        // On utilise createElement pour convertir le composant en élément React
+        root.render(React.createElement(App));
       </script>
+
     </div>
 </body>
 </html>
