@@ -1,5 +1,5 @@
 {
-  /* Cette configuration fait que ESLint s'exécute uniquement lors de l'enregistrement du fichier
-     au lieu de s'exécuter en continu pendant que vous tapez */
+  // Cette configuration fait que ESLint s'exécute uniquement lors de l'enregistrement du fichier
+  // au lieu de s'exécuter en continu pendant que vous tapez
   "eslint.run": "onSave"
 }

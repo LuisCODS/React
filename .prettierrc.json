@@ -1,0 +1,32 @@
+{
+  // Configuration Prettier pour le formatage automatique du code
+  // Ce fichier définit les règles de style pour maintenir une cohérence dans le code
+  // Les règles sont appliquées automatiquement lors de la sauvegarde des fichiers
+  
+  // Ajoute des points-virgules à la fin des instructions
+  "semi": true,
+  
+  // Utilise 2 espaces pour l'indentation
+  "tabWidth": 2,
+  
+  // Limite la longueur des lignes à 100 caractères
+  "printWidth": 100,
+  
+  // Utilise des guillemets simples au lieu des doubles
+  "singleQuote": true,
+  
+  // Ajoute des virgules finales selon les règles ES5
+  "trailingComma": "es5",
+  
+  // Ajoute des espaces entre les accolades
+  "bracketSpacing": true,
+  
+  // Place les accolades de fermeture JSX sur une nouvelle ligne
+  "jsxBracketSameLine": false,
+  
+  // Évite les parenthèses pour les fonctions fléchées avec un seul paramètre
+  "arrowParens": "avoid",
+  
+  // Gère automatiquement les fins de ligne selon le système d'exploitation
+  "endOfLine": "auto"
+} 

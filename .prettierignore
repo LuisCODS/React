@@ -1,0 +1,23 @@
+# Dossiers de build et de dépendances
+# Ces dossiers contiennent du code compilé et des modules externes
+# qui ne doivent pas être formatés
+build
+dist
+node_modules
+
+# Fichiers de cache
+# Ces dossiers contiennent des fichiers temporaires générés
+# qui ne doivent pas être formatés
+.cache
+.next
+
+# Fichiers de configuration des gestionnaires de paquets
+# Ces fichiers sont générés automatiquement et ne doivent pas être modifiés
+package-lock.json
+yarn.lock
+
+# Fichiers système
+# Ces fichiers sont spécifiques au système d'exploitation
+# et ne doivent pas être formatés
+.DS_Store
+Thumbs.db 
