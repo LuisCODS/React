@@ -1,45 +1,46 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import "./index.css";
 
-// data 
-
-export const data = [
+// ____________________ Data ____________________ 
+const tourData = [
   {
-  id: 5,
-  title: "Japan",
-  desc: "Japan, a blend of traditional culture and oms, and futuristic cities. Millions flock to Tokyo, Kyoto, and beyond each year.",
-  image: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
-},
+    id: 1,
+    title: "New York",
+    desc: "Home to the Statue of Liberty, Empire State Building, Central Park, Times Square, New York is the most populous city in the USA. We have a lot to tell about the city where city lights illuminate the sky.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Central_Park_New_York_City_New_York_23_cropped.jpg",
+    price: "1000$",
+  },
 {
-  id: 6,
+  id: 2,
   title: "Canada",
   desc: "Canada offers breathtaking landscapes cities and stunning nature, it attracts tourists all year round.",
-  image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Canadian_Rockies_Banff_National_Park_Alberta_Canada_2018.jpg",
+  image: "https://upload.wikimedia.org/wikipedia/commons/1/17/Montmorency_waterfall%2C_Qu%C3%A9bec%2C_Qu%C3%A9bec.jpg",
+  // price: "2000$",
+  tourIsUp: "TOUR IS UP",
 },
 {
-  id: 7,
+  id: 3,
   title: "Brazil",
   desc: "Home to the Amazon Rainforest osystems that enchant millions of travelers annually.",
-  image: "https://upload.wikimedia.org/wikipedia/commons/1/10/Cristo_Redentor_-_Rio_de_Janeiro%2C_Brasil.jpg",
+  image: "https://upload.wikimedia.org/wikipedia/commons/9/98/Cidade_Maravilhosa.jpg",
+  price: "3000$",
 },
 {
-  id: 8,
+  id: 4,
   title: "France",
   desc: "France, known for its art, rldwide, drawing people with its culture and charm.",
   image: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
-},
-{
-  id: 9,
-  title: "Thailand",
-  desc: "Thailand is a Southeast Asian"
+  price: "5000$",
 }
 ];
 
-// components...
+// ____________________ components ____________________
 
+// Composant principal qui structure l'application
 function App() {
   return (
-    <div>
+    <div className="wrapper">
       <Header />
       <Main />
       <Footer />
@@ -47,50 +48,80 @@ function App() {
   );
 }
 
-const Tour =()=>{
-  return(
-    <div>
-      <h2>Component Tour</h2>  
-      <p>Japan, a blend of traditional culture and oms, and futuristic cities. Millions flock to Tokyo, Kyoto, and beyond each year.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg" alt="Tour Eiffel" width="200" />
+const Header=()=>{
+  return (
+    <header className="header">
+      Tour Route
+    </header>
+  );
+}
+
+// qui affiche la liste des destinations
+const Main = () => { 
+  const tours = tourData;
+  // const tours = [];
+  return (
+    <main className="main">
+      {
+        tours.length > 0 ? 
+        (  
+          <div className="renderList">
+            {tours.map((tour) => ( <Tour tourObj={tour} key={tour.id} /> ))}
+          </div> 
+        ) 
+        : 
+        ( <h2>No data available</h2> )
+      }  
+    </main>
+  );
+}
+
+// affiche les détails d'une destination
+const Tour = ({ tourObj }) => {
+  const { image, title, desc, price, tourIsUp } = tourObj;
+  
+  return (
+    <div className={`tourWrapper ${tourIsUp ? "grey" : ""}`}>
+      <img src={image} alt={title} />
+      <div className="tourBottom">
+        <h2>{title}</h2>
+        <p>{desc}</p>
+        <span>{tourIsUp ? tourIsUp : price}</span>
       </div>
+    </div>
   );
 };
 
-const Header=()=>{
-  return (
-    <h1>The Routes</h1>
-  );
-}
 
-const Main=()=>{
-  return(
-    <div>
-      <h2>Places to visit</h2>
-      <Tour />
-    </div>
-  );
-}
-
-const Footer=()=>{
+const Footer=(props)=>{
   const hour = new Date().getHours();
-  const openHours = 12;
-  const closeHours = 22;
+  const openHours = 9;
+  const closeHours = 20;
   const isOpen = hour >= openHours && hour <= closeHours;
-  
-  // console.log(isOpen);
 
-  // if(hour >= openHours && hour <= closeHours){
-  //   alert("We are currentle open");
-  // }else{
-  //   alert("Sorry we are close");
-  // }
+  // console.log(props);
 
   return(
-    <footer>{new Date().toLocaleTimeString()} We are the best tour company</footer>
+    <footer className="footer">
+      {
+        isOpen ? 
+        ( <Order closeHours={closeHours} openHours={openHours} />) 
+        :
+        ( <div className="closed"> <p>We are closed</p></div> ) 
+      }
+    </footer>
   );
-}
+};
 
+const Order = ({ closeHours, openHours}) => {
+  return (
+      <div className="order">
+        <p>We are open from {openHours}:00 until {closeHours}:00</p>
+        <button className="btn">Order</button>
+      </div> 
+  );
+};
 
+// Initialisation et rendu de l'application
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
