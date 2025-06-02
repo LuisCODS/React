@@ -1,11 +1,19 @@
-import "../css/footer.css";
+import '../css/footer.css';
 
-function Footer ({ totalItems, completedItems }) {
+function Footer({ items }) {
+  const totalItem = items.length;
+  const completedItem = items.filter(item => item.packed).length;
+  const percentage = (completedItem / totalItem) * 100;
+
   return (
     <div className="footerWrapper">
-     Total Item:X Completed Item: X
+      Total Item: {totalItem}
+      <br/>
+      Completed Item: {completedItem}
+      <br/>
+       {percentage > 0 ? "Percentage " + percentage.toFixed(0) + "%" : ""}
     </div>
   );
-};
+}
 
 export default Footer;

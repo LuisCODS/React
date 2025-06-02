@@ -1,7 +1,7 @@
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
-import { useState } from "react";
+import { useState } from 'react';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -14,8 +14,8 @@ function App() {
       3. [...items, newItem] crée une nouvelle copie du tableau avec le nouvel élément
       4. Cela garantit que React détecte le changement et re-render correctement
     */
-    setItems((items) => [...items, newItem]);
-  };
+    setItems(items => [...items, newItem]);
+  }
 
   function deleteItem(id) {
     /*
@@ -25,8 +25,8 @@ function App() {
       . Cela supprime effectivement l'item avec l'id spécifié de la liste
       . On utilise une fonction callback pour garantir l'accès au state le plus récent
     */
-    setItems((items) => items.filter((item) => item.id !== id));
-  };
+    setItems(items => items.filter(item => item.id !== id));
+  }
 
   function doneItem(id) {
     /*
@@ -38,16 +38,16 @@ function App() {
       4. Si ce n'est pas le même id, on garde l'item tel quel
       5. On utilise une fonction callback pour garantir l'accès au state le plus récent
     */
-    setItems((items) => 
-      items.map((item) => 
-        item.id === id ? { ...item, packed: !item.packed } : item));
-    };
+    setItems(items =>
+      items.map(item => (item.id === id ? { ...item, packed: !item.packed } : item))
+    );
+  }
 
   return (
     <div className="appWrapper">
       <Header />
-      <Main items={ items } addItem = { addItem } deleteItem = { deleteItem } doneItem = { doneItem } />
-      <Footer />
+      <Main items={items} addItem={addItem} deleteItem={deleteItem} doneItem={doneItem} />
+      <Footer items={items} />
     </div>
   );
 }
