@@ -1,0 +1,100 @@
+[
+  // ======================= NAVIGATION DANS LE CODE =======================
+
+  // Aller à la définition du symbole sous le curseur
+  {
+    "key": "cmd+b",
+    "command": "editor.action.goToDeclaration",
+    "when": "editorTextFocus"
+  },
+
+  // Aller à la définition du symbole sélectionné
+  {
+    "key": "cmd+g",
+    "command": "editor.action.goToDeclaration",
+    "when": "editorHasSelection && editorTextFocus"
+  },
+
+  // Rechercher un symbole dans le fichier courant
+  {
+    "key": "cmd+shift+o",
+    "command": "workbench.action.gotoSymbol",
+    "when": "editorTextFocus"
+  },
+
+  // Rechercher rapidement un fichier
+  {
+    "key": "cmd+p",
+    "command": "workbench.action.quickOpen",
+    "when": "editorTextFocus"
+  },
+
+  // ======================= PLIAGE DE CODE =======================
+
+  // Plier tout le code
+  {
+    "key": "cmd+k cmd+0",
+    "command": "editor.foldAll",
+    "when": "editorTextFocus"
+  },
+
+  // Déplier tout le code
+  {
+    "key": "cmd+k cmd+j",
+    "command": "editor.unfoldAll",
+    "when": "editorTextFocus"
+  },
+
+  // Plier la section courante
+  {
+    "key": "cmd+k cmd+[",
+    "command": "editor.fold",
+    "when": "editorTextFocus"
+  },
+
+  // Déplier la section courante
+  {
+    "key": "cmd+k cmd+]",
+    "command": "editor.unfold",
+    "when": "editorTextFocus"
+  },
+
+  // ======================= ÉDITION DE CODE =======================
+
+  // Commenter/décommenter la ligne ou la sélection
+  {
+    "key": "cmd+/",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus"
+  },
+
+  // Sélectionner la prochaine occurrence du texte sélectionné
+  {
+    "key": "cmd+d",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+
+  // Sélectionner toutes les occurrences du texte sélectionné
+  {
+    "key": "cmd+shift+l",
+    "command": "editor.action.selectHighlights",
+    "when": "editorFocus"
+  },
+
+  // ======================= TERMINAL =======================
+
+  // Basculer l'affichage du terminal
+  {
+    "key": "cmd+`",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminalFocus"
+  },
+
+  // Ouvrir un nouveau terminal
+  {
+    "key": "cmd+shift+`",
+    "command": "workbench.action.terminal.newTerminal",
+    "when": "terminalFocus"
+  }
+]

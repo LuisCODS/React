@@ -1,5 +1,100 @@
 {
-  // Cette configuration fait que ESLint s'exécute uniquement lors de l'enregistrement du fichier
-  // au lieu de s'exécuter en continu pendant que vous tapez
-  "eslint.run": "onSave"
+  // ============================ ÉDITEUR ET INTERFACE ============================
+  "editor.fontSize": 15,                    // Taille de la police de l'éditeur
+  "editor.tabSize": 2,                      // Nombre d'espaces pour l'indentation
+  "editor.rulers": [100],                   // Ligne verticale à 100 caractères
+  "editor.mouseWheelZoom": true,            // Zoom avec la molette de la souris
+  "editor.folding": true,                   // Active le pliage de code
+  "editor.wordWrap": "on",                  // Retour à la ligne automatique
+  "editor.minimap.enabled": false,          // Désactive la minimap pour de meilleures performances
+  "window.zoomLevel": 0,                    // Niveau de zoom de la fenêtre
+  "workbench.colorTheme": "Cursor Dark",    // Thème de couleur sombre
+  "workbench.colorCustomizations": {        // Personnalisation des couleurs
+    "tab.activeBorder": "#00b7f0",         // Couleur de la bordure de l'onglet actif
+    "tab.activeBorderTop": "#00b7f0",      // Couleur de la bordure supérieure de l'onglet actif
+    "tab.activeBackground": "#1c2128",     // Couleur de fond de l'onglet actif
+    "tab.activeForeground": "#ffffff"      // Couleur du texte de l'onglet actif
+  },
+
+  // ============================ GESTION DES FICHIERS ============================
+  "files.autoSave": "onFocusChange",        // Sauvegarde automatique lors du changement de focus
+  "files.trimTrailingWhitespace": true,     // Supprime les espaces en fin de ligne
+  "files.insertFinalNewline": true,         // Ajoute une ligne vide à la fin des fichiers
+  "explorer.confirmDelete": false,          // Désactive la confirmation de suppression
+  "files.associations": {                   // Associations de fichiers
+    "*.erb": "erb",                        // Fichiers ERB pour Ruby
+    "*.html.erb": "erb"                    // Fichiers HTML ERB pour Ruby
+  },
+
+  // ============================ NAVIGATION ET RECHERCHE ============================
+  "javascript.preferGoToSourceDefinition": true,  // Préfère la définition source pour JavaScript
+  "editor.gotoLocation.multipleDefinitions": "goto",      // Navigation vers les définitions multiples
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",  // Navigation vers les définitions de type
+  "editor.gotoLocation.multipleDeclarations": "goto",     // Navigation vers les déclarations
+  "editor.gotoLocation.multipleImplementations": "goto",  // Navigation vers les implémentations
+  "editor.gotoLocation.multipleReferences": "peek",       // Aperçu des références multiples
+  "editor.definitionLinkOpensInPeek": false,              // Désactive l'aperçu des définitions
+  "workbench.editor.revealIfOpen": true,                  // Révèle l'éditeur s'il est déjà ouvert
+
+  // ============================ TERMINAL ============================
+  "terminal.integrated.mouseWheelZoom": true,             // Zoom avec la molette dans le terminal
+  "terminal.integrated.defaultProfile.osx": "zsh",        // Shell par défaut pour macOS
+  "terminal.integrated.fontSize": 14,                     // Taille de la police du terminal
+
+  // ============================ RUBY ET RAILS ============================
+  "rubyLsp.enabledFeatures": {                           // Fonctionnalités du serveur Ruby LSP
+    "documentSymbols": true,                             // Active les symboles de document
+    "definition": true,                                  // Active la navigation vers les définitions
+    "hover": true                                        // Active l'info-bulle au survol
+  },
+  "ruby.lint": {                                         // Configuration du linting Ruby
+    "rubocop": true,                                     // Active RuboCop
+    "ruby": true                                         // Active le linter Ruby
+  },
+  "ruby.format": "rubocop",                              // Utilise RuboCop pour le formatage
+  "ruby.useBundler": true,                               // Utilise Bundler pour les commandes Ruby
+  "ruby.useLanguageServer": true,                        // Active le serveur de langage Ruby
+  "ruby.intellisense": "rubyLocate",                     // Utilise rubyLocate pour l'intellisense
+  "ruby.locate.include": ["**/*.rb"],                    // Inclut tous les fichiers Ruby
+  "ruby.locate.exclude": ["**/vendor/**", "**/node_modules/**"],  // Exclut les dossiers non pertinents
+  "solargraph.useBundler": true,                         // Utilise Bundler pour Solargraph
+
+  // ============================ FORMATAGE ET LINTING ============================
+  "editor.defaultFormatter": "esbenp.prettier-vscode",   // Formateur par défaut (Prettier)
+  "[ruby]": {                                            // Configuration spécifique pour Ruby
+    "editor.defaultFormatter": "jnbt.vscode-rufo"        // Utilise Rufo pour Ruby
+  },
+  "[javascript]": {                                      // Configuration spécifique pour JavaScript
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"  // Utilise ESLint pour JavaScript
+  },
+  "[typescript]": {                                      // Configuration spécifique pour TypeScript
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"  // Utilise ESLint pour TypeScript
+  },
+  "[html]": {                                            // Configuration spécifique pour HTML
+    "editor.defaultFormatter": "vscode.html-language-features"  // Utilise le formateur HTML intégré
+  },
+  "[css]": {                                             // Configuration spécifique pour CSS
+    "editor.defaultFormatter": "vscode.css-language-features"  // Utilise le formateur CSS intégré
+  },
+  "[json]": {                                            // Configuration spécifique pour JSON
+    "editor.defaultFormatter": "vscode.json-language-features" // Utilise le formateur JSON intégré
+  },
+  "[markdown]": {                                        // Configuration spécifique pour Markdown
+    "editor.defaultFormatter": "vscode.markdown-language-features" // Utilise le formateur Markdown intégré
+  },
+
+  // ============================ ESLINT ============================
+  "eslint.enable": true,                                 // Active ESLint
+  "eslint.alwaysShowStatus": true,                       // Affiche toujours le statut ESLint
+  "editor.codeActionsOnSave": {                          // Actions de code lors de la sauvegarde
+    "source.fixAll.eslint": "always"                     // Corrige automatiquement avec ESLint
+  },
+  "editor.formatOnSave": false,                          // Désactive le formatage automatique à la sauvegarde
+
+  // ============================ PRETTIER  ============================
+  "prettier.singleQuote": true,                          // Utilise des guillemets simples
+  "prettier.semi": false,                                // Pas de point-virgule en fin de ligne
+  "prettier.tabWidth": 2,                                // Largeur de l'indentation
+  "prettier.printWidth": 100,                            // Longueur maximale de ligne
+  "prettier.trailingComma": "es5"                        // Style des virgules finales (ES5)
 }
