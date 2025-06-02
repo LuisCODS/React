@@ -1,0 +1,9 @@
+
+.footerWrapper {
+  width: 100%;
+  padding: 16px;
+  border-top: 1px solid grey;
+  margin-top:  auto;
+  display: flex;
+  justify-content: center;
+}
